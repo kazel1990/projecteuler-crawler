@@ -1,8 +1,8 @@
 import mechanize
  
 PE_LOGIN = 'http://projecteuler.net/login'
+PE_FRIENDS = 'http://projecteuler.net/friends'
 PE_PROGRESS = 'http://projecteuler.net/progress='
-CRAWL_LIST = ['kazel']
 
 #load user info
 f = open('.security', 'r')
@@ -10,10 +10,27 @@ USERNAME = f.readline()
 PASSWORD = f.readline()
 f.close()
 
-USERNAME=USERNAME[:len(USERNAME)-1]
-PASSWORD=PASSWORD[:len(PASSWORD)-1]
+USERNAME=USERNAME[:-1]
+PASSWORD=PASSWORD[:-1]
 
-def foo(inp):
+def get_crawl_list(inp):
+	out = []
+	idx = 0
+	data = inp
+	while True:
+		try:
+			idx = data.index('progress=') + 9
+		except ValueError:
+			break
+		data = data[idx:]
+		idx = data.find('\"')
+		str = data[:idx]
+		if str == USERNAME:
+			break
+		out.append(str)
+	return out
+
+def get_solved(inp):
 	idx = inp.find('<div id=\"problems_solved_section\">')
 	i2 = inp.find('<div id=\"problems_solving_awards_section\">')
 	data = inp[idx:i2]
@@ -31,10 +48,7 @@ def foo(inp):
 		if data.startswith('<td class=\"problem_solved\">',idx):
 			out += str(num) + ' '
 
-		try:
-			idx = data.index('</a></td>')
-		except ValueError:
-			return out
+		idx = data.find('</a></td>')
 		data = data[idx+9:]
 		num += 1
  
@@ -46,12 +60,16 @@ def main():
 	browser['username'] = USERNAME
 	browser['password'] = PASSWORD
 
-	res = browser.submit()
+	browser.submit()
+	
+	res = browser.open(PE_FRIENDS)
 
-	for u in CRAWL_LIST:
+	crawl_list = get_crawl_list(res.get_data())
+	
+	for u in crawl_list:
 		f = open('result/'+u, 'w+b')
 		res = browser.open(PE_PROGRESS+u)
-		rstr = foo(res.get_data())
+		rstr = get_solved(res.get_data())
 		f.write(rstr)
 		f.close()
 
