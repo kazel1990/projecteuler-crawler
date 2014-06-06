@@ -1,9 +1,14 @@
-projecteuler.net progress crawler
+<h1>projecteuler crawler</h1>
+<p>projecteuler.net progress crawler<p>
 
-credit:
-	mechanize(http://wwwsearch.sourceforge.net/mechanize/)
+<p>credit:</p>
+<ul>
+<li>mechanize(http://wwwsearch.sourceforge.net/mechanize/)</li>
+</ul>
 
-how to use:
-	easy_install mechanize
-	. init
-	. task (or add to cron)
+<p>how to use:</p>
+<ol>
+<li>easy_install mechanize</li>
+<li>. init</li>
+<li>. task (or add to cron)</li>
+</ol>
