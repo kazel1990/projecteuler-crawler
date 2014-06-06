@@ -1,0 +1,9 @@
+python crawl.py
+
+python compare.py
+
+rm -r data
+
+mv result data
+
+mkdir result

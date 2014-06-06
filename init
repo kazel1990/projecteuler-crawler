@@ -1,0 +1,11 @@
+#create user login info file
+touch .security
+
+#create directory where crawled data are stored
+mkdir result
+
+#create directory where last crawled data are stored
+mkdir data
+
+#create file where compare result is stored
+touch comp
