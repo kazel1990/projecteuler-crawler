@@ -2,13 +2,12 @@
 
 #irssi script
 #required value
-my $compdir = "";
-my $target = "";
+my $compdir = "/home/kazel1990/bots/euler/comp";
+my $target = "#euler";
 my $server = undef;
 
 sub read_file {
 	open(FILE, "<:encoding(UTF-8)", $compdir) or do {
-		$server->command("MSG ${target} 파일 읽기 오류");
 		return;
 	};
 	while(my $row = <FILE>) {

@@ -1,11 +1,17 @@
-rm comp
+COMP='/path/to/comp'
+CRAWL='/path/to/crawl.py'
+COMPARE='/path/to/compare.py'
+DATA='/path/to/data'
+RESULT='/path/to/result'
 
-python crawl.py
+rm $COMP
 
-python compare.py
+python $CRAWL
 
-rm -r data
+python $COMPARE
 
-mv result data
+rm -r $DATA
 
-mkdir result
+mv $RESULT $DATA
+
+mkdir $RESULT
