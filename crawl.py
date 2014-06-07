@@ -4,9 +4,10 @@ import json
 PE_LOGIN = 'http://projecteuler.net/login'
 PE_FRIENDS = 'http://projecteuler.net/friends'
 PE_PROGRESS = 'http://projecteuler.net/progress='
+PATH = '/path/to'
 
 #load user info
-f = open('.security', 'r')
+f = open(PATH+'.security', 'r')
 USERNAME = f.readline()[:-1]
 PASSWORD = f.readline()[:-1]
 f.close()
@@ -66,7 +67,7 @@ def main():
 	crawl_list = get_crawl_list(res.get_data())
 	
 	for u in crawl_list:
-		f = open('result/'+u, 'w+b')
+		f = open(PATH+'result/'+u, 'w+b')
 		res = browser.open(PE_PROGRESS+u)
 		rlst = get_solved(res.get_data())
 		json.dump(rlst, f)
