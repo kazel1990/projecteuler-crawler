@@ -1,3 +1,5 @@
+rm comp
+
 python crawl.py
 
 python compare.py

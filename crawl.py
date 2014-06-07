@@ -26,8 +26,6 @@ def get_crawl_list(inp):
 		data = data[idx:]
 		idx = data.find('\"')
 		str = data[:idx]
-		if str == USERNAME:
-			break
 		out.append(str)
 	return out
 

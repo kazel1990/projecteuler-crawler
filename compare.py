@@ -16,7 +16,6 @@ def compare():
 			for n in lr:
 				if n not in ld:
 					s = r + ' solved problem ' + str(n)
-					print s
 					fout.write(s+'\n')
 	fout.close()
 
