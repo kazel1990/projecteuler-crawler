@@ -24,5 +24,5 @@ sub event_privmsg {
 if(caller) {
 	require Irssi;
 	Irssi::signal_add("event privmsg", "event_privmsg");
-	Irssi::timeout_add(600000, "read_file", undef);
+	Irssi::timeout_add(300000, "read_file", undef);
 }
