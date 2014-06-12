@@ -30,7 +30,7 @@ sub get_num_solved {
 	return "fail" unless($response->is_success);
 
 	my $response_string = $response->decoded_content;
-	if ($response_string =~ m/Solved (\d+)\,/) {
+	if ($response_string =~ m/Solved (\d+\+?)\,/) {
 		return "${text} solved ".$1." problems";
 	}
 	return "fail";
