@@ -16,8 +16,8 @@ def compare():
 			fd.close()
 			for n in lr:
 				if n not in ld:
-					name = r[:len(r)/2] + "_" + r[len(r)/2:]
-					s = name + ' has solved problem ' + str(n)
+					name = r[0] + "_" + r[1:]
+					s = '[alarm] ' + name + ' has solved problem ' + str(n)
 					fout.write(s+'\n')
 	fout.close()
 

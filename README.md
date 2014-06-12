@@ -1,7 +1,7 @@
 <h1>projecteuler crawler</h1>
-<p>projecteuler.net progress crawler<p>
+<p>projecteuler.net progress crawler for use in irssi<p>
 
-<p>credit:</p>
+<p>requirement</p>
 <ul>
 <li>mechanize(http://wwwsearch.sourceforge.net/mechanize/)</li>
 </ul>
@@ -11,4 +11,5 @@
 <li>easy_install mechanize</li>
 <li>. init</li>
 <li>. task (or add to cron)</li>
+<li> load euler.pl in irssi client</li>
 </ol>
